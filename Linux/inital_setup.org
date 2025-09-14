@@ -1,0 +1,49 @@
+#+title: Inital Setup
+
+
+* Github setup
+
+- Generate SSH key
+  #+BEGIN_SRC bash
+  ssh-keygen -t ed25519 -C "novaturiente@proton.me"
+  #+END_SRC
+
+- Add pub key to account
+
+- Update to ssh remote
+  #+BEGIN_SRC bash
+   git remote set-url origin git@github.com:Novaturiente/.dotfiles
+   git remote set-url origin git@github.com:Novaturiente/Org
+  #+END_SRC
+
+- configure git
+  #+BEGIN_SRC bash
+  git config --global user.email "Novaturiente@proton.me"
+  git config --global user.name "Novaturiente"
+  #+END_SRC
+
+
+* Network configuration
+
+** Configure Network manager DNS
+  #+BEGIN_SRC bash
+  nmcli connection show
+  nmcli connection modify "Wired connection 1" ipv4.ignore-auto-dns yes
+  nmcli connection modify "Wired connection 1" ipv4.dns "1.1.1.1 8.8.8.8"
+  nmcli connection modify "Wired connection 1" ipv6.ignore-auto-dns yes
+  nmcli connection modify "Wired connection 1" ipv6.dns "2606:4700:4700::1111 2001:4860:4860::8888"
+  nmcli connection down "Wired connection 1" && nmcli connection up "Wired connection 1"
+  #+END_SRC
+
+
+* flatpak_configuration
+
+** Override gtk theme
+#+BEGIN_SRC bash
+sudo flatpak override --env=GTK_THEME=Sweet-Dark-v40
+#+END_SRC
+
+** Override filesystem permission
+#+BEGIN_SRC bash
+sudo flatpak override --filesystem=~/.themes
+#+END_SRC
