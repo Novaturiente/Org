@@ -1,0 +1,30 @@
+#+title: Configuration
+
+* Install Go Development Tools
+
+#+begin_src bash
+
+go install golang.org/x/tools/gopls@latest
+
+# REPL
+go install github.com/x-motemen/gore/cmd/gore@latest
+
+# Autocompletion
+go install github.com/stamblerre/gocode@latest
+
+# Documentation
+go install golang.org/x/tools/cmd/godoc@latest
+
+# Import management
+go install golang.org/x/tools/cmd/goimports@latest
+
+# Refactoring
+go install golang.org/x/tools/cmd/gorename@latest
+go install golang.org/x/tools/cmd/guru@latest
+
+# Test generation
+go install github.com/cweill/gotests/gotests@latest
+
+# Struct tag manipulation
+go install github.com/fatih/gomodifytags@latest
+#+end_src

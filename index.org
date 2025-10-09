@@ -2,4 +2,11 @@
 
 * Linux
 
-[[file:Linux/inital_setup.org][Initial Setup]]
+  [[file:Linux/inital_setup.org][Initial Setup]]
+
+* Programing
+
+** GO
+   [[file:Programing/Go/configuration.org][Initial Setup]]
+
+
