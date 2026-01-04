@@ -48,6 +48,7 @@ sudo flatpak override --env=GTK_THEME=Sweet-Dark-v40
 sudo flatpak override --filesystem=~/.themes
 #+END_SRC
 
+
 * Hybernate settings
   #+BEGIN_SRC bash
   btrfs subvolume create /swap
@@ -59,10 +60,27 @@ sudo flatpak override --filesystem=~/.themes
     /swap/swapfile none swap defaults 0 0
 
   #+BEGIN_SRC bash
-  btrfs inspect-internal map-swapfile -r swap_file
+  btrfs inspect-internal map-swapfile -r /swap/swapfile
   #+END_SRC
 
   - Add to /boot/loader/entries/linux-cachyos.conf
     resume=UUID=uuid resume_offset=
 
 
+* Firewall configuration
+
+  #+BEGIN_SRC bash
+  sudo iptables -P INPUT DROP
+  sudo iptables -P OUTPUT ACCEPT
+  sudo iptables -P FORWARD ACCEPT
+
+  sudo iptables -A INPUT -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+  sudo iptables -A INPUT -i lo -j ACCEPT
+
+  sudo iptables -A INPUT -p tcp --dport 1714:1764 -j ACCEPT
+  sudo iptables -A INPUT -p udp --dport 1714:1764 -j ACCEPT
+	
+  sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+
+  sudo iptables-save | sudo tee /etc/iptables/rules.v4
+  #+END_SRC

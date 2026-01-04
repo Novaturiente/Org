@@ -1,2 +1,7 @@
 #+title: Read Later
 
+[[https://github.com/bytebot-ai/bytebot][bytebot-ai/bytebot: Bytebot is a self-hosted AI desktop agent that automates computer tasks through natural language commands, operating within a containerized Linux desktop environment.]] 
+
+[[https://github.com/MODSetter/SurfSense][MODSetter/SurfSense: Open Source Alternative to NotebookLM / Perplexity, connected to external sources such as Search Engines, Slack, Linear, Jira, ClickUp, Confluence, Notion, YouTube, GitHub, Discord and more. Join our discord: https://discord.gg/ejRNvftDp9]]
+
+[[https://github.com/iib0011/omni-tools][iib0011/omni-tools: Self-hosted collection of powerful web-based tools for everyday tasks. No ads, no tracking, just fast, accessible utilities right from your browser!]]
